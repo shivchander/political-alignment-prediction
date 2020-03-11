@@ -1,6 +1,4 @@
 import tweepy
-import time
-import sys
 
 from keys import keys
 
@@ -138,3 +136,7 @@ class Tweet:
         except tweepy.TweepError:
             print('Oops somethings not right, good luck figuring out what')
             return None
+
+
+x = Tweet('realDonaldTrump')
+print(len(x.get_tweets()))
