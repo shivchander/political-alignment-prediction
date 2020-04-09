@@ -1,11 +1,9 @@
-import tweepy
 import numpy as np
 
 import math
 import sys
 from itertools import zip_longest
 
-from keys import keys
 consumer_key = "yuNQZSADRNqRiDj0U3oOWEaE9"
 consumer_secret = "OuJVoxDFBTy7wiePcEW0d0RkuHSaQwr5niBTWAEMdASnTWcOrX"
 access_token = '1168231254308712449-XuhViryRpYsrhYuhpETXImWFTHViis'
@@ -64,8 +62,6 @@ class Frontier():
         # Sample a distance and then a node to expand
         d = np.random.choice(a=list(distances), p=self._normalize(probabilities))
 
-        # I think this is getting more difficult by not taking in the api object
-        # as one of its inputs.
         nodes_at_d = self.lookup(self.distribution[d])
         u = max(nodes_at_d, key=self.get_out_degree).id
 
@@ -81,7 +77,6 @@ class Frontier():
 
         # let's move the frontier forward at the node 'u'
         new_nodes = self.expander(u).difference(self.internal, self.perimeter)
-        # print(".", end="")
         sys.stdout.flush()
 
         # Keep track of distance of a node from src and its parent
@@ -154,79 +149,3 @@ def safe_lookup_users(api, ids):
         users.extend(api.lookup_users(user_ids=ids))
 
     return users
-
-
-if __name__ == "__main__":
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
-
-    source = input("Source User's handle> ")
-
-    dest_dem_usrs = ['BernieSanders', 'AOC', 'HillaryClinton']
-    dest_rep_usrs = ['realDonaldTrump', 'VP', 'GOP']
-
-    api = tweepy.API(auth)
-
-    try:
-        # Get user ids from the user handles
-        src_user = api.get_user(source)
-
-        dem = {}
-        rep = {}
-
-        for party in (dest_dem_usrs, dest_rep_usrs):
-            if party == dest_dem_usrs:
-                party_flag = 'dem'
-            else:
-                party_flag = 'rep'
-            for destination in party:
-                dest_user = api.get_user(destination)
-
-                # print("Each dot is an api call that counts to the rate limit.")
-
-                src_frontier = Frontier(src_user.id, api.friends_ids
-                                        , lambda n: n.friends_count
-                                        , lambda ids: safe_lookup_users(api, ids))
-                dest_frontier = Frontier(dest_user.id, api.followers_ids
-                                         , lambda n: n.followers_count
-                                         , lambda ids: safe_lookup_users(api, ids))
-
-                while src_frontier.covered_all() or dest_frontier.covered_all():
-                    # Expand the source node's frontier first
-                    nodes = src_frontier.expand_perimeter()
-
-                    # check if any one of new nodes is on the destination's perimeter
-                    if any(map(lambda n: dest_frontier.is_on_perimeter(n), nodes)):
-                        # print("Found!")
-                        break
-
-                    # Copy twice with a slight pain. If you have to copy thrice, abstract!
-                    nodes = dest_frontier.expand_perimeter()
-                    if any(map(lambda n: src_frontier.is_on_perimeter(n), nodes)):
-                        # print("Found!")
-                        break
-
-                m = src_frontier.perimeter.intersection(dest_frontier.perimeter).pop()
-
-                # The man in the middle!
-                m = src_frontier.perimeter.intersection(dest_frontier.perimeter).pop()
-
-                separation = src_frontier.get_distance(m) + dest_frontier.get_distance(m) - 1
-                print(dest_user.name)
-                print("Separation: {0}".format(separation))
-
-                if party_flag == 'dem':
-                    dem[dest_user.name] = separation
-                else:
-                    rep[dest_user.name] = separation
-
-    except tweepy.RateLimitError:
-        print("""It seems we have exceeded twitter's api call limit.
-                 Please come back after 15 minutes.""")
-        exit(1)
-    except tweepy.TweepError as e:
-        print("Something went wrong!")
-        print(e)
-
-    print(rep)
-    print(dem)

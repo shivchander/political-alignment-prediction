@@ -1,6 +1,7 @@
 import tweepy
 
-from keys import keys
+from src.keys import keys
+from src.bacon import Frontier, safe_lookup_users
 
 __author__ = 'Shivchander Sudalairaj'
 
@@ -30,6 +31,10 @@ class Tweet:
         )
 
         self.user_handle = user_handle
+
+        # politicians' screennames for bacon number
+        self._dem_usrs = ['BernieSanders', 'AOC', 'JoeBiden']
+        self._rep_usrs = ['realDonaldTrump', 'VP', 'GOP']
 
     def get_friends(self):
         """
@@ -135,8 +140,83 @@ class Tweet:
             print(self.api.get_user(screen_name=self.user_handle).location)
         except tweepy.TweepError:
             print('Oops somethings not right, good luck figuring out what')
-            return None
+            return
+
+    def get_bacon(self):
+        """
+        :return: two dicts (dem, rep) with predetermined politicians as the keys and the bacon num as the values
+        """
+        source = self.user_handle
+        api = self.api
+
+        dest_dem_usrs = self._dem_usrs
+        dest_rep_usrs = self._rep_usrs
+
+        try:
+            # Get user ids from the user handles
+            src_user = api.get_user(source)
+
+            dem = {}
+            rep = {}
+
+            for party in (dest_dem_usrs, dest_rep_usrs):
+                if party == dest_dem_usrs:
+                    party_flag = 'dem'
+                else:
+                    party_flag = 'rep'
+                for destination in party:
+
+                    if source == destination:
+                        separation = 0
+                        continue
+
+                    else:
+
+                        dest_user = api.get_user(destination)
+
+                        src_frontier = Frontier(src_user.id, api.friends_ids
+                                                , lambda n: n.friends_count
+                                                , lambda ids: safe_lookup_users(api, ids))
+                        dest_frontier = Frontier(dest_user.id, api.followers_ids
+                                                 , lambda n: n.followers_count
+                                                 , lambda ids: safe_lookup_users(api, ids))
+
+                        while src_frontier.covered_all() or dest_frontier.covered_all():
+                            # Expand the source node's frontier first
+                            nodes = src_frontier.expand_perimeter()
+
+                            # check if any one of new nodes is on the destination's perimeter
+                            if any(map(lambda n: dest_frontier.is_on_perimeter(n), nodes)):
+                                # print("Found!")
+                                break
+
+                            # Copy twice with a slight pain. If you have to copy thrice, abstract!
+                            nodes = dest_frontier.expand_perimeter()
+                            if any(map(lambda n: src_frontier.is_on_perimeter(n), nodes)):
+                                # print("Found!")
+                                break
+
+                        m = src_frontier.perimeter.intersection(dest_frontier.perimeter).pop()
+
+                        # The man in the middle!
+                        m = src_frontier.perimeter.intersection(dest_frontier.perimeter).pop()
+
+                        separation = src_frontier.get_distance(m) + dest_frontier.get_distance(m) - 1
+
+                    if party_flag == 'dem':
+                        dem[dest_user.name] = separation
+                    else:
+                        rep[dest_user.name] = separation
+
+            return dem, rep
+
+        except tweepy.RateLimitError:
+            print("""It seems we have exceeded twitter's api call limit.
+                         Please come back after 15 minutes.""")
+        except tweepy.TweepError as e:
+            print("Something went wrong!")
+            print(e)
 
 
-x = Tweet('realDonaldTrump')
-print(len(x.get_tweets()))
+x = Tweet('01110011shiv')
+print(x.get_bacon())
