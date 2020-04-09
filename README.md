@@ -54,6 +54,7 @@ By studying the political orientation of twitter users, it is possible to target
 
 Anca Ralescu - ralescal@ucmail.uc.edu
 
+
 Demo
 ====
 > Video Link to the Project Demo 
@@ -66,4 +67,4 @@ Presentation
 
 Poster
 ======
-![poster](assignments/assignment-5/Research.png)
+![poster|50%](assignments/assignment-5/Research.png)
