@@ -111,10 +111,10 @@ Architecture
 
 ## Technologies
 
-[![twitter-api|48x48](assets/twitter.png)](https://developer.twitter.com/en/docs)
-[![keras|48x48](assets/keras.png)](https://keras.io)
-[![tf|48x48](assets/tf.jpg)](https://www.tensorflow.org)
-[![pandas|48x48](assets/pandas.png)](https://pandas.pydata.org)
+[![twitter-api|10%](assets/twitter.png)](https://developer.twitter.com/en/docs)
+[![keras|10%](assets/keras.png)](https://keras.io)
+[![tf|10%](assets/tf.jpg)](https://www.tensorflow.org)
+[![pandas|10%](assets/pandas.png)](https://pandas.pydata.org)
 
 Testing & Results
 =================
