@@ -12,6 +12,17 @@ Table of contents
         * [Abstract](#abstract)
         * [Team Members](#team)
         * [Project Advisor](#advisor)
+        * [Challenges](#challenges)
+        * [Solution](#solution)
+   * [Architecture](#architecture)
+        * [Modules](#modules)
+            * [Data Extracion](#dataext)
+                * [Dataset](#dataset)
+            * [Model](#model)
+                * [Classification Model](#classification)
+                * [Ensemble Classifier](#ensemble)
+            * [Networking](#network)
+        * [Technologies](#technologies)
    * [Testing & Results](#testing)
         * [Test Plan](#testplan)
         * [Test Case](#testcase)
@@ -19,13 +30,16 @@ Table of contents
             * [Result 1](#result-1)
             * [Result 2](#result-2)
         * [Inference](#inference)
+   * [Future Work](#future)
    * [User Manual](#user-manual)
    * [Demo](#demo)
    * [Presentation](#powerpoint)
    * [Poster](#poster)
-   * [Professional Biographies](#bios)
-        * [Shivchander Sudalairaj](#shiv)
-        * [Sagar Panwar](#sagar)
+   * [Assessments](#assessments)
+        * [Initial Self-Assessment](#fall)
+        * [Final Self-Assessment](#spring)
+   * [Summary of Hours](#Hours)
+   * [Assignments](assignments)
    * [Appendix](#appendix)
 <!--te-->
 
@@ -42,6 +56,20 @@ By studying the political orientation of twitter users, it is possible to target
 
 > Index Terms - Twitter, Political Science, NLP, Deep Learning, Neural Networks
 
+## Challenges
+Sentiment analysis on tweets to assess political leaning has its disadvantages :
+
+* Does not paint a complete and holistic picture of the users' ideological views
+* Cannot build a digital profile of a user from a single or even with a temporal series of tweets   
+* Assessing political leaning of a demography does not serve the purposes and intents of individual orientation   
+
+## Solution
+We leverage more than just tweet-retweet maximization, or a network matrix :     
+
+* Binary classification of the latest tweets, retweets and liked tweets on the basis of political leaning
+* Identifying the degree of separation between the user and politicians from both the political sides 
+
+Our proposed system is curated to provide a more rounded and holistic sense of the individual user, painting an overall picture of their digital profile, leading to potential in marketing and business spheres.   
 
 
 ## Team Members
@@ -55,16 +83,107 @@ By studying the political orientation of twitter users, it is possible to target
 Anca Ralescu - ralescal@ucmail.uc.edu
 
 
-Demo
-====
-> Video Link to the Project Demo 
-
-[Twitter Sentiment Analysis - CS Senior Design](https://www.youtube.com/watch?v=cv4K47OorfA&feature=youtu.be)
-
-Presentation
+Architecture
 ============
-[Final Presentation](assignments/assignment-3/DeepPollster_Presentation.pdf)
+
+![arch](assets/architecture.png)
+
+## Modules
+
+### Data Extraction Module
+
+![dataextraction](assets/data_ext.png)
+
+### Dataset
+> [Link to download the dataset](https://www.kaggle.com/kapastor/democratvsrepublicantweets)
+
+### Model
+
+#### Classification Model
+![classificationmodel](assets/model.png)
+
+#### Ensemble Classifier
+![ensemble](assets/ensemble.png)
+
+### Networking Module
+> Degree of Seperation (Erdos Number)
+![networking](assets/network_module.png)
+
+## Technologies
+
+[![twitter-api|200x200](assets/twitter.png)](https://developer.twitter.com/en/docs)
+[![keras|200x200](assets/keras.png)](https://keras.io)
+[![tf|200x200](assets/tf.jpg)](https://www.tensorflow.org)
+[![pandas|200x200](assets/pandas.png)](https://pandas.pydata.org)
+
+Testing & Results
+=================
+## [Test Plan](assignments/assignment-1/TestPlans.pdf)
+
+## Test Case
+* The model was tested with multiple sets of test cases to eliminate any innate bias
+* Each sets of test cases consists of a set of 50 previously untested politicians’ twitter handles
+
+_Hypothesis : Politicians are relatively consistent with the language models that they follow while publishing tweets on twitter_
+
+## Results
+
+### Result 1
+![result1](assets/missclassifications.png)
+
+>After running our tests, we observed that our model was able to predict democratic politicians with 100% accuracy
+While the misclassifications arose with republican politicians resulting with an accuracy of 80%
+
+
+### Result 2
+![result2](assets/ConfidenceLevels.png)
+
+>After running our tests, we observed that our model was able to identify democrats with significantly higher confidence than republicans.
+
+>We also observed that predictions from tweets model was more stable than retweets and liked tweets. This supports our initial hypothesis for variable weights
+
+## Inference
+
+* Democratic tweets consistently fall on the political left
+* Republican tweets falls more on political centre and centre-right
+* Democrats are more consistent with their language and in turn political ideologies used on twitter
+* Republicans use language which is more ambiguous and tend to waver between left and right of the political spectrum
+* Naively extrapolating this model to general public users will cause inherent bias 
+
+Future Work
+===========
+* The handling of tweet content analysis and classification can further be improved to handle spam accounts. It is also to be noted that sarcasm is yet to be handled by our model and additions could be made to account for this
+* To develop a generalized model to be applicable for general public users, we would need to survey users and find out their political orientation to develop a more general dataset and retrain the model using the dataset
+
+
+[User Manual](user-manual/usermanual.md)
+========================================
+
+[Demo](https://www.youtube.com/watch?v=cv4K47OorfA&feature=youtu.be)
+===================================================================
+
+[Presentation](assignments/assignment-3/DeepPollster_Presentation.pdf)
+======================================================================
 
 Poster
 ======
 ![poster|50%](assignments/assignment-5/Research.png)
+
+Assessments
+===========
+
+## Initial Self-Assessment
+
+* [Shivchander Sudalairaj]()
+* [Sagar Panwar]()
+
+## Final Self-Assessment
+
+* [Shivchander Sudalairaj]()
+* [Sagar Panwar]()
+
+## Summary of Hours
+
+[Assignments](assignments)
+==========================
+
