@@ -111,10 +111,10 @@ Architecture
 
 ## Technologies
 
-[![twitter-api|200x200](assets/twitter.png)](https://developer.twitter.com/en/docs)
-[![keras|200x200](assets/keras.png)](https://keras.io)
-[![tf|200x200](assets/tf.jpg)](https://www.tensorflow.org)
-[![pandas|200x200](assets/pandas.png)](https://pandas.pydata.org)
+[![twitter-api|48x48](assets/twitter.png)](https://developer.twitter.com/en/docs)
+[![keras|48x48](assets/keras.png)](https://keras.io)
+[![tf|48x48](assets/tf.jpg)](https://www.tensorflow.org)
+[![pandas|48x48](assets/pandas.png)](https://pandas.pydata.org)
 
 Testing & Results
 =================
@@ -187,3 +187,10 @@ Assessments
 [Assignments](assignments)
 ==========================
 
+License
+=======
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2020
