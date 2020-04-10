@@ -167,7 +167,7 @@ Future Work
 
 Poster
 ======
-![poster|50%](assignments/assignment-5/Research.png)
+![poster|50%](assets/Research.png)
 
 Assessments
 ===========
