@@ -8,10 +8,10 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Project Description](#project-desc)
+   * [Project Description](#project-description)
         * [Abstract](#abstract)
-        * [Team Members](#team)
-        * [Project Advisor](#advisor)
+        * [Team Members](#team-members)
+        * [Project Advisor](#faculty-advisor)
         * [Challenges](#challenges)
         * [Solution](#solution)
    * [Architecture](#architecture)
