@@ -32,7 +32,7 @@ Table of contents
         * [Inference](#inference)
    * [Future Work](#future)
    * [User Manual](#user-manual)
-   * [Demo](#demo)
+   * [Video](#video)
    * [Presentation](#powerpoint)
    * [Poster](#poster)
    * [Assessments](#assessments)
@@ -118,7 +118,7 @@ Architecture
 
 Testing & Results
 =================
-## [Test Plan](assignments/assignment-1/TestPlans.pdf)
+## [Test Plan](assignments/assignment-1/testplan.md)
 
 ## Test Case
 * The model was tested with multiple sets of test cases to eliminate any innate bias
@@ -159,7 +159,7 @@ Future Work
 [User Manual](user-manual/usermanual.md)
 ========================================
 
-[Demo](https://www.youtube.com/watch?v=cv4K47OorfA&feature=youtu.be)
+[Video](https://www.youtube.com/watch?v=cv4K47OorfA&feature=youtu.be)
 ===================================================================
 
 [Presentation](assignments/assignment-3/DeepPollster_Presentation.pdf)
@@ -182,7 +182,8 @@ Assessments
 * [Shivchander Sudalairaj]()
 * [Sagar Panwar]()
 
-## Summary of Hours
+Summary of Hours
+================
 
 [Assignments](assignments)
 ==========================
@@ -192,5 +193,5 @@ License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- **[MIT license](LICENSE)**
 - Copyright 2020
