@@ -156,7 +156,7 @@ Future Work
 * To develop a generalized model to be applicable for general public users, we would need to survey users and find out their political orientation to develop a more general dataset and retrain the model using the dataset
 
 
-[User Manual](user-manual/usermanual.md)
+[User Manual](usermanual.md)
 ========================================
 
 [Video](https://www.youtube.com/watch?v=cv4K47OorfA&feature=youtu.be)

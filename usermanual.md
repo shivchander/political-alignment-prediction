@@ -32,11 +32,11 @@ Getting Started
 
 2. Apply for a twitter developer account [here](https://developer.twitter.com/en/application/use-case)
 
-    ![](political-alignment-prediction/assets/Screen Shot 2020-04-14 at 7.19.13 PM.png)
+    ![](assets/Screen Shot 2020-04-14 at 7.19.13 PM.png)
 
 3. Make sure you select a student account
 
-    ![](political-alignment-prediction/assets/Screen Shot 2020-04-14 at 7.23.13 PM.png)
+    ![](assets/Screen Shot 2020-04-14 at 7.23.13 PM.png)
     
 4. Add account details. Click on continue.
 
@@ -52,6 +52,8 @@ Getting Started
 
 10. First, click on Keys and tokens. Second, click on create to get access token and access token secret.
 
-    ![](political-alignment-prediction/assets/Screen Shot 2020-04-14 at 7.28.25 PM.png)
+    ![](assets/Screen Shot 2020-04-14 at 7.28.25 PM.png)
 
-> Save your API key, API secret key, Access token, and Access token secret somewhere safe. 
+> Save your API key, API secret key, Access token, and Access token secret somewhere safe.
+
+ 
