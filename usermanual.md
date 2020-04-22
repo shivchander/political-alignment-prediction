@@ -161,8 +161,9 @@ If you need assistance using Deep Pollster or have any further questions:
 
 Contact us:
 
-* [Shivchander Sudalairaj](mailto:sudalasr@mail.uc.edu)
-* [Sagar Panwar](mailto:panwarsr@mail.uc.edu)
+> [Shivchander Sudalairaj](mailto:sudalasr@mail.uc.edu)
+>
+> [Sagar Panwar](mailto:panwarsr@mail.uc.edu)
 
 If there is a bug in our code, raise an issue on our [Github Repo](https://github.com/shivchander/political-alignment-prediction)
 
