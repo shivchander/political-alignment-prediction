@@ -151,8 +151,6 @@ weighted_score          0.892207
 final_prediction        democrat	
 ```
 
-FAQ
-===
 
 Further Questions
 =================
