@@ -174,12 +174,12 @@ Assessments
 
 ## Initial Self-Assessment
 
-* [Shivchander Sudalairaj]()
-* [Sagar Panwar]()
+* [Shivchander Sudalairaj](assesments/shiv_fall_assessment.md)
+* [Sagar Panwar](assesments/sagar_fall_assessment)
 
 ## Final Self-Assessment
 
-* [Shivchander Sudalairaj]()
+* [Shivchander Sudalairaj](assesments/shiv_final_assessment.md)
 * [Sagar Panwar]()
 
 Summary of Hours
