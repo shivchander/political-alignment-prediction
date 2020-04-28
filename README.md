@@ -167,6 +167,9 @@ Future Work
 
 Poster
 ======
+> ![Link to pdf](assignments/assignment-5/Research-2.pdf)
+
+
 ![poster|50%](assets/Research.png)
 
 Assessments
@@ -184,6 +187,21 @@ Assessments
 
 Summary of Hours
 ================
+
+|    |     Date    | Category                       | Shiv | Sagar |
+|----|:-----------:|--------------------------------|:----:|:-----:|
+| 1  | 1/20 - 1/25 | Twitter API                    |  4   |  10   |
+| 2  |  1/26 - 2/1 | Data Exploration               |   5  |   10  |
+| 3  |  2/2 - 2/15 | Research Exploration           |   5  |   10  |
+| 4  | 2/16 - 2/22 | Experiments with LSTM          |   5  |   3   |
+| 5  | 2/23 - 2/29 | Data Preprocessing             |   5  |   2   |
+| 6  | 3/1 - 3/7   | Model Architecture Experiments | 10   |   5   |
+| 7  | 3/8 - 3/14  | Model Training                 |  6   |   2   |
+| 8  | 3/15 - 3/21 | Model Testing                  |  4   |   2   |
+| 9  | 3/22 - 4/4  | Integration                    |  7   |   2   |
+| 10 | 4/5 - 4/11  | Documentation and Github       |  4   |   4   |
+|    |             | Total Hours                    | 55   | 50    |
+
 
 [Assignments](assignments)
 ==========================
